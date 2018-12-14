@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import setuptools
 from setuptools import setup, find_packages
 from bradocs4py import __version__
 
@@ -15,13 +16,13 @@ setup(
 	url = 'https://github.com/namio/BRADocs4Py.git',
 	license = 'MIT',
 	classifiers = [
-		'Development Status :: 5 - 3 - Alpha',
+		'Development Status :: 3 - Alpha',
 		'Environment :: Web Environment',
 		'Intended Audience :: Developers',
 		'License :: OSI Approved :: MIT License',
 		'Natural Language :: English',
 		'Natural Language :: Portuguese',
-		'Natural Language :: Portuguese (Brazilian)'
+		'Natural Language :: Portuguese (Brazilian)',
 		'Programming Language :: Python :: 3.6',
 		'Programming Language :: Python :: 3.7',
 	],
