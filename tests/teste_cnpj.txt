@@ -1,0 +1,61 @@
+>>> from cpfcnpj import Cnpj
+
+CNPJs errados
+-------------
+
+>>> cnpj = Cnpj('abcdefghijklmn')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('123')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj(None)
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('12345678901234')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('11222333000100')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('112223330001OO')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('19.658.147/0001-0O')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('19 658 147/0001-0O')
+>>> cnpj.isValid
+False
+
+>>> cnpj = Cnpj('98,185,167.0O01 79')
+>>> cnpj.isValid
+False
+
+
+CNPJs válidos
+-------------
+
+>>> cnpj = Cnpj('19.658.147/0001-00')
+>>> cnpj.isValid
+True
+
+>>> cnpj = Cnpj('19 658 147/0001-00')
+>>> cnpj.isValid
+True
+
+>>> cnpj = Cnpj('98,185,167.0001 79')
+>>> cnpj.isValid
+True
+

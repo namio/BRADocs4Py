@@ -1,0 +1,5 @@
+>>> from cpfcnpj import GeradorCpf
+
+>>> cpf = GeradorCpf.gerar()
+>>> cpf.isValid
+True

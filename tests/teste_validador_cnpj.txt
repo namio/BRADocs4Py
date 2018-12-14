@@ -1,0 +1,100 @@
+>>> from cpfcnpj import Cnpj, ValidadorCnpj
+
+CNPJs inválidos
+---------------
+
+>>> cnpj = Cnpj('abcdefghijklmn')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('123')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj(None)
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('12345678901234')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('11222333000100')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('112223330001OO')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('19.658.147/0001-0O')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('19 658 147/0001-0O')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('98,185,167.0O01 79')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+>>> cnpj = Cnpj('34,633,423\0001/60')
+>>> ValidadorCnpj.validar(cnpj)
+False
+
+
+
+Strings representando números de CNPJs inválidos
+------------------------------------------------
+
+>>> ValidadorCnpj.validar('abcdefghijklmn')
+False
+
+>>> ValidadorCnpj.validar('123')
+False
+
+>>> ValidadorCnpj.validar('')
+False
+
+>>> ValidadorCnpj.validar(None)
+False
+
+>>> ValidadorCnpj.validar('12345678901234')
+False
+
+
+
+CNPJs válidos
+-------------
+
+>>> cnpj = Cnpj('05.692.744/0001-38')
+>>> ValidadorCnpj.validar(cnpj)
+True
+
+>>> cnpj = Cnpj('34  633 423,0001/60')
+>>> ValidadorCnpj.validar(cnpj)
+True
+
+>>> cnpj = Cnpj('34,633,423 0001/60')
+>>> ValidadorCnpj.validar(cnpj)
+True
+
+
+
+Strings representando números de CNPJs válidos
+----------------------------------------------
+
+
+>>> ValidadorCnpj.validar('05.692.744/0001-38')
+True
+
+>>> ValidadorCnpj.validar('34  633 423,0001/60')
+True
+
+>>> ValidadorCnpj.validar('34,633,423 0001/60')
+True

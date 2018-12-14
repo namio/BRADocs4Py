@@ -1,0 +1,100 @@
+>>> from cpfcnpj import CPF, ValidadorCpf
+
+CPFs errados
+------------
+
+>>> cpf = CPF('abcdefghijk')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('123')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('12345678901')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('123.456.789-01')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF(None)
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('123 678.456-OO')
+>>> ValidadorCpf.validar(cpf)
+False
+
+>>> cpf = CPF('508,697,212-4O')
+>>> ValidadorCpf.validar(cpf)
+False
+
+
+Validar strings representativas de números de CPFs inválidos
+------------------------------------------------------------
+
+>>> ValidadorCpf.validar('abcdefghijk')
+False
+
+>>> ValidadorCpf.validar('123.456.789-00')
+False
+
+>>> ValidadorCpf.validar('345 765 987 00')
+False
+
+>>> ValidadorCpf.validar('947.897.681-8O')
+False
+
+>>> ValidadorCpf.validar('508,697,212-4O')
+False
+
+
+CPFs corretos
+-------------
+
+>>> cpf = CPF('947.897.681-80')
+>>> ValidadorCpf.validar(cpf)
+True
+
+>>> cpf = CPF('50869721240')
+>>> ValidadorCpf.validar(cpf)
+True
+
+>>> cpf = CPF('302 529 509 09')
+>>> ValidadorCpf.validar(cpf)
+True
+
+>>> cpf = CPF('345-742-819/01')
+>>> ValidadorCpf.validar(cpf)
+True
+
+Foi criado um CPF válido, porém foi digitado um caractere de separação diferente dos caracteres esperados
+(.-/ ). Mesmo assim, o validador informa tratar-se de um CPF correto
+>>> cpf = CPF('508,697,212-40')
+>>> ValidadorCpf.validar(cpf)
+True
+
+
+Validar strings representativas de números de CPFs válidos
+----------------------------------------------------------
+
+>>> ValidadorCpf.validar('947.897.681-80')
+True
+
+>>> ValidadorCpf.validar('50869721240')
+True
+
+>>> ValidadorCpf.validar('302 529 509 09')
+True
+
+>>> ValidadorCpf.validar('345-742-819/01')
+True
+
+>>> ValidadorCpf.validar('508,697,212-40')
+True

@@ -1,0 +1,120 @@
+>>> from cpfcnpj import CPF
+
+CPFs errados
+------------
+
+>>> cpf = CPF('abcdefghijk')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+abcdefghijk
+
+>>> print(cpf.rawValue)
+abcdefghijk
+
+>>> cpf = CPF('123')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+123
+
+>>> print(cpf.rawValue)
+123
+
+>>> cpf = CPF('')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+<BLANKLINE>
+
+>>> print(cpf.rawValue)
+<BLANKLINE>
+
+>>> cpf = CPF(None)
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+<BLANKLINE>
+
+>>> print(cpf.rawValue)
+None
+
+>>> cpf = CPF('12345678900')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+123.456.789-00
+
+>>> print(cpf.rawValue)
+12345678900
+
+>>> cpf = CPF('12345678A0O')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+12345678A0O
+
+>>> print(cpf.rawValue)
+12345678A0O
+
+>>> cpf = CPF('123.456.78A-0O')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+12345678A0O
+
+>>> print(cpf.rawValue)
+12345678A0O
+
+>>> cpf = CPF('123 456.78A 0O')
+>>> cpf.isValid
+False
+
+>>> print(cpf)
+12345678A0O
+
+>>> print(cpf.rawValue)
+12345678A0O
+
+
+
+CPFs Válidos
+------------
+
+>>> cpf = CPF('95524361503')
+>>> cpf.isValid
+True
+
+>>> print(cpf)
+955.243.615-03
+
+>>> print(cpf.rawValue)
+95524361503
+
+>>> cpf = CPF('955.243.615-03')
+>>> cpf.isValid
+True
+
+>>> print(cpf)
+955.243.615-03
+
+>>> print(cpf.rawValue)
+95524361503
+
+
+>>> cpf = CPF('  955 243 615 03  ')
+>>> cpf.isValid
+True
+
+>>> print(cpf)
+955.243.615-03
+
+>>> print(cpf.rawValue)
+95524361503

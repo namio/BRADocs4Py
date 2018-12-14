@@ -1,0 +1,5 @@
+>>> from cpfcnpj import GeradorCnpj
+
+>>> cnpj = GeradorCnpj.gerar()
+>>> cnpj.isValid
+True
