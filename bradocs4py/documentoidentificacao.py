@@ -38,7 +38,7 @@ class DocumentoIdentificacao(object):
 		"""
 		p = re.compile('[ ./-]')
 
-		return p.sub('', input) if input != None else None
+		return p.sub('', str(input)) if input != None else None
 
 
 
