@@ -6,7 +6,8 @@ from .cnpj import Cnpj, ValidadorCnpj, GeradorCnpj
 from .cpf import CPF, ValidadorCpf, GeradorCpf
 from .inscricaosuframa import InscricaoSuframa, ValidadorSuframa, GeradorSuframa
 from .inscricaoestadual import InscricaoEstadual, ValidadorInscricaoEstadual
+from .chaveacessonfe import ChaveAcessoNFe, ValidadorChaveAcessoNFe, GeradorChaveAcessoNFe, validarChaveAcessoNFe, gerarChaveAcessoNFe
 
-__version__ = '1.0.0'
+__version__ = '1.1.1'
 
 
