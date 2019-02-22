@@ -15,7 +15,7 @@ class Cnpj(DocumentoIdentificacao):
 
 	def __str__(self):
 		"""
-		Will format an adequately formatted numbers-only CNPJ string, adding in standard formatting visual 
+		Will format an adequately formatted numbers-only CNPJ string, adding in standard formatting visual
 		aid symbols for display.
 		If CNPJ string is shorten that 14 digits or contains non-digits characters, returns the raw value
 		CNPJ string unformatted.
@@ -32,7 +32,7 @@ class Cnpj(DocumentoIdentificacao):
 	@property
 	def isValid(self):
 		"""
-		Returns whether or not the verifying checksum digits of the given `cnpj` match it's base number. 
+		Returns whether or not the verifying checksum digits of the given `cnpj` match it's base number.
 		Input should be a digit string of proper length.
 		"""
 		return ValidadorCnpj.validar(self)
@@ -60,7 +60,7 @@ class ValidadorCnpj(object):
 
 	def __hashDigit(self, cnpj, position): # type: (str, int) -> int
 		"""
-		Will compute the given `position` checksum digit for the `cnpj` input. The input needs to contain 
+		Will compute the given `position` checksum digit for the `cnpj` input. The input needs to contain
 		all elements previous to `position` else computation will yield the wrong result.
 		"""
 
@@ -85,7 +85,7 @@ class GeradorCnpj(object):
 
 	def __hashdigit(self, cnpj, position):
 		"""
-		Will compute the given `position` checksum digit for the `cnpj` input. The input needs to contain 
+		Will compute the given `position` checksum digit for the `cnpj` input. The input needs to contain
 		all elements previous to `position` else computation will yield the wrong result.
 		"""
 
@@ -96,7 +96,7 @@ class GeradorCnpj(object):
 
 	def __checksum(self, basenum):
 		"""
-		Will compute the checksum digits for a given CNPJ base number. `basenum` needs to be a digit-string 
+		Will compute the checksum digits for a given CNPJ base number. `basenum` needs to be a digit-string
 		of adequate length.
 		"""
 
@@ -108,7 +108,7 @@ class GeradorCnpj(object):
 	@staticmethod
 	def gerar(branch = 1): # type: (int) -> Cnpj
 		"""
-		Generates a random valid CNPJ digit string. An optional branch number parameter can be given, 
+		Generates a random valid CNPJ digit string. An optional branch number parameter can be given,
 		it defaults to 1.
 		"""
 
