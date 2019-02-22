@@ -145,7 +145,6 @@ class GeradorChaveAcessoNFe(object):
 	def __call__(self, **kwargs):
 		return GeradorChaveAcessoNFe.gerar(**kwargs)
 
-
 	@staticmethod
 	def gerar(**kwargs):
 
@@ -202,7 +201,7 @@ class GeradorChaveAcessoNFe(object):
 
 
 
-gerarChaveAcessoNFe = GeradorChaveAcessoNFe.gerar()
+gerarChaveAcessoNFe = GeradorChaveAcessoNFe()
 
 
 
