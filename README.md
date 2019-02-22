@@ -48,6 +48,9 @@ O projeto está em fase inicial de desenvolvimento.
 | [ChaveAcessoNFe](#chave)            |Funcional        |
 | [ValidadorChaveAcessoNFe](#vchave)  |Funcional        |
 | [GeradorChaveAcessoNFe](#gchave)    |Funcional        |
+| [GTIN](#gtin)                       |Funcional        |
+| [ValidadorGTIN](#vgtin)             |Funcional        |
+| [GeradorGTIN](#ggtin)               |Funcional        |
 
 
 ### <a name="di"></a> DocumentoIdentificacao
@@ -525,5 +528,115 @@ Isto posto, desejando-se criar uma chave de acesso emitida no Ceará (Código IB
 
 > **Atenção**: a forma abreviada do gerador _(gerarChaveAcessoNFe)_ não permite a passagem de parâmetros.
 
+### <a name="gtin"></a>GTIN
 
+Representa um Número Global do Item Comercial - Global Trade Item Number (GTIN)
 
+O GTIN é um identificador para itens comerciais desenvolvido e controlado pela [GS1][gs1], antiga EAN/UCC. Os GTINs,
+anteriormente chamados de códigos EAN, são atribuídos para qualquer item (produto ou serviço) que pode ser
+precificado, pedido ou faturado em qualquer ponto da cadeia de suprimentos. O GTIN é utilizado para recuperar
+informação pré-definida e abrange desde as matérias primas até produtos acabados. GTIN é um termo “guarda-chuva”
+para descrever toda a família de identificação das estruturas de dados GS1 para itens comerciais (produtos e serviços).
+Os GTINs podem ter o tamanho de 8, 12, 13 ou 14 dígitos e podem ser construídos utilizando qualquer uma das quatro
+estruturas de numeração dependendo da aplicação. O GTIN-8 é codificado no código de barras EAN-8. O GTIN-12 é mais
+utilizado no código de barras UPC-A, o GTIN-13 é codificado no EAN-13 e o GTIN-14 no ITF-14.
+
+#### Utilização
+
+##### Criando uma instância de [GTIN](#gtin) a partir de um inteiro
+
+    >>> gtin = GTIN(6291041500213)
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-13 '6291041500213')>
+    >>> gtin.rawValue
+    '6291041500213'
+    >>> gtin.isValid
+    True
+
+##### Criando uma instância de [GTIN](#gtin) a partir de uma cadeia de caracteres numéricos
+
+    >>> gtin = GTIN('35723189')
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-8 '35723189')>
+    >>> gtin.rawValue
+    '35723189'
+    >>> gtin.isValid
+    True
+
+### <a name="vgtin"></a> ValidadorGTIN
+
+Valida uma instância de GTIN, um inteiro ou uma cadeia de caracteres numéricos que representa um GTIN, a partir do [cálculo de seu dígito verificador][calculo-digito-gtin], o qual assegura a sua integridade.
+
+> Nota: Muito embora o ValidadorGTIN valide uma instância de GTIN, a validação desta instância pode ser verificada através da sua propriedade _isValid_, conforme exemplos acima.
+
+#### Utilização
+
+    >>> gtin = GTIN('35723189')
+    >>> ValidadorGTIN.validar(gtin)
+    True
+    >>> ValidadorGTIN.validar('3572318')
+    False
+    >>> ValidadorGTIN.validar('35723189')
+    True
+    >>> ValidadorGTIN.validar(6291041500213)
+    True
+    >>> ValidadorGTIN.validar('62910415OO213')
+    False
+
+**OU**
+
+    >>> gtin = GTIN('35723189')
+    >>> validar_gtin(gtin)
+    True
+    >>> validar_gtin('3572318')
+    False
+    >>> validar_gtin('35723189')
+    True
+    >>> validar_gtin(6291041500213)
+    True
+    >>> validar_gtin('62910415OO213')
+    False
+
+### <a name="ggtin"></a> GeradorGTIN
+
+Gera uma instância de um [GTIN](#gtin) válido.
+
+>IMPORTANTE: Este gerador de GTIN tem como intenção ajudar estudantes, programadores, analistas e testadores de sistemas computacionais a gerar GTINs válidas. Normalmente necessárias parar testar seus softwares em desenvolvimento. A má utilização dos dados aqui gerados é de total responsabilidade do usuário. Os números são gerados de forma aleatória, respeitando as regras de criação de um GTIN.
+
+#### Utilização
+
+    >>> gtin = GeradorGTIN.gerar()
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-8 '93490399')>
+
+**ou**
+
+    >>> gtin = gerar_gtin()
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-8 '33409382')>
+
+É possível informar ao gerador o tipo de GTIN que se deseja gerar. Para isso, deve-se passar o _GeradorGTIN.TipoGTIN_ desejado.
+
+##### Para gerar um GTIN-8
+
+    >>> gtin = GeradorGTIN.gerar(GeradorGTIN.TipoGTIN.GTIN8)
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-8 '33409382')>
+
+Também é possível gerar GTINs chamando diretamente _gerar_gtin_:
+
+    >>> gtin = gerar_gtin(GeradorGTIN.TipoGTIN.GTIN13)
+    >>> gtin
+    <BRADocs4Py.bradocs4py.gtin.GTIN(GTIN-13 '4332497941617')>
+
+Utilize:
+
+* GeradorGTIN.TipoGTIN.GTIN8 para gerar GTIN-8
+* GeradorGTIN.TipoGTIN.GTIN12 para gerar GTIN-12
+* GeradorGTIN.TipoGTIN.GTIN13 para gerar GTIN-13, ou
+* GeradorGTIN.TipoGTIN.GTIN14 para gerar GTIN-14
+
+> Se não for passado nenhum tipo para o gerador, este gerará sempre um GTIN-8.
+
+[gs1]: https://www.gs1br.org
+[calculo-digito-gtin]: https://www.gs1.org/services/how-calculate-check-digit-manually
