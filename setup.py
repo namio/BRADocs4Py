@@ -4,13 +4,18 @@ import setuptools
 from setuptools import setup, find_packages
 from bradocs4py import __version__
 
+with open("README.md", "r") as fh:
+	long_description = fh.read()
+
 setup(
 	name = 'bradocs4py',
 	packages = find_packages(exclude = ['contrib', 'docs', 'tests*']),
 	include_package_data = False,
 	version = __version__,
-	description = 'biblioteca Python que visa fornecer componentes para trabalhar com tipos de dados específicos da realidade brasileira.',
-	long_description = 'biblioteca Python que visa fornecer componentes para trabalhar com tipos de dados específicos da realidade brasileira.',
+	description = 'Inclui o tipo GTIN para representar um Global Trade Item Number (Número Global de Item Comercial).',
+	long_description = long_description,
+	long_description_content_type="text/markdown",
+	python_requires='>=3',
 	author = 'Nâmio Evangelista Cavalcante de Sousa',
 	author_email = 'namio.sousa@gmail.com',
 	url = 'https://github.com/namio/BRADocs4Py.git',
