@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # BRADocs4Py
 
 BRADocs4Py é uma biblioteca que visa fornecer componentes para trabalhar com tipos de dados específicos da realidade brasileira.
@@ -385,13 +387,13 @@ Valida a consistência e a integridade de uma instância de [ChaveAcessoNFe](#ch
 
 #### <a name="dvchave"></a> Cálculo do dígito verificador
 
-O dígito verificador da chave de acesso da NF-e é baseado em um cálculo do módulo 11. O módulo 11 de um número é calculado multiplicando-se cada algarismo pela sequência de multiplicadores 2,3,4,5,6,7,8,9,2,3, ..., posicionados da direita para a esquerda.
+O dígito verificador da chave de acesso da NF-e é baseado em um cálculo do módulo 11. O módulo 11 de um número é calculado multiplicando-se cada algarismo pela sequência de multiplicadores 2,3,4,5,6,7,8,9,2,3, ..., posicionados da direita para a esquerda.
 
-A somatória dos resultados das ponderações dos algarismos é dividida por 11 e o DV (dígito verificador) será a diferença entre o divisor (11) e o resto da divisão:
+A somatória dos resultados das ponderações dos algarismos é dividida por 11 e o DV (dígito verificador) será a diferença entre o divisor (11) e o resto da divisão:
 
-DV = 11 - (resto da divisão)
+DV = 11 - (resto da divisão)
 
-> Quando o resto da divisão for 0 (zero) ou 1 (um), o DV deverá ser igual a 0 (zero).
+> Quando o resto da divisão for 0 (zero) ou 1 (um), o DV deverá ser igual a 0 (zero).
 
 Exemplo: consideremos a seguinte chave de acesso: _52060433009911002506550120000007800267301615_
 
@@ -406,9 +408,9 @@ Isolando o _dígito verificador_, temos: _52060433009911002506550120000007800267
 
 Dividindo o somatório das ponderações por **11**, temos: 644/11 = 58, restando **6**
 
-Como o dígito verificador (DV) = 11 - (resto da divisão), temos: **11 - 6 = 5**
+Como o dígito verificador (DV) = 11 - (resto da divisão), temos: **11 - 6 = 5**
 
-Neste caso o DV da chave de acesso da NF-e é igual a "5".
+Neste caso o DV da chave de acesso da NF-e é igual a "5".
 
 #### <a name="consistenciachave"></a> Verificação da _consistência_ da Chave de Acesso
 
@@ -512,7 +514,7 @@ A chave gerada pelo [GeradorChaveAcessoNFe](#gchave) obedece às [regras de cons
     >>> chave.rawValue
     '23181241761925000132652850017668297691400378'
 
-##### <a name="gchaveEmissao"></a> Gerar uma chave de acesso para uma NF-e emitida com Contingência FS-IA, com impressão do DANFE em formulário de segurança (Tipo de emissã0 = 2)
+##### <a name="gchaveEmissao"></a> Gerar uma chave de acesso para uma NF-e emitida com Contingência FS-IA, com impressão do DANFE em formulário de segurança (Tipo de emissã0 = 2)
 
     >>> chave = GeradorChaveAcessoNFe.gerar(formaEmissao=2)
     >>> chave.rawValue
