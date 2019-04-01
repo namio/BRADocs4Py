@@ -1,4 +1,5 @@
 [![GitHub](https://img.shields.io/github/license/namio/BRADocs4Py.svg)](https://github.com/namio/BRADocs4Py/blob/master/LICENSE)
+![GitHub language count](https://img.shields.io/github/languages/count/namio/BRADocs4Py.svg)
 
 # BRADocs4Py
 
