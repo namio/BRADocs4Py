@@ -1,6 +1,12 @@
+[![PyPI](https://img.shields.io/pypi/v/BRADocs4Py.svg)](https://pypi.org/project/bradocs4py/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/BRADocs4Py.svg)](https://pypi.org/project/bradocs4py/)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/BRADocs4Py.svg)](https://pypi.org/project/bradocs4py/)
+[![PyPI - Implementation](https://img.shields.io/pypi/implementation/BRADocs4Py.svg)](https://pypi.org/project/bradocs4py/)
 [![GitHub](https://img.shields.io/github/license/namio/BRADocs4Py.svg)](https://github.com/namio/BRADocs4Py/blob/master/LICENSE)
 ![GitHub language count](https://img.shields.io/github/languages/count/namio/BRADocs4Py.svg)
 ![GitHub top language](https://img.shields.io/github/languages/top/namio/BRADocs4Py.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/namio/BRADocs4PY.svg)
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/namio)
 
 # BRADocs4Py
 
