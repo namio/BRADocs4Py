@@ -1,0 +1,10 @@
+>>> from bradocs4py.chaveacessonfe import ChaveAcessoNFe, ValidadorChaveAcessoNFe
+
+Validar strings representativas chaves de acessos
+-------------------------------------------------
+
+>>> ValidadorChaveAcessoNFe.validar('23181106850713000120550010017668291111030112')
+True
+
+>>> ValidadorChaveAcessoNFe.validar('23 1811 06850713000120 55 001 001766829 1 11103011 2')
+True
