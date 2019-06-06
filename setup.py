@@ -12,7 +12,7 @@ setup(
 	packages = find_packages(exclude = ['contrib', 'docs', 'tests*']),
 	include_package_data = False,
 	version = __version__,
-	description = 'Inclui o tipo GTIN para representar um Global Trade Item Number (Número Global de Item Comercial).',
+	description = 'Corrige falha que invalidava chaves de acessos de notas fiscais eletrônicas emitidas com datas (ano e mês) anteriores à data corrente.',
 	long_description = long_description,
 	long_description_content_type="text/markdown",
 	python_requires='>=3',
