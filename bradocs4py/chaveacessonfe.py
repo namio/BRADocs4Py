@@ -87,17 +87,23 @@ class ValidadorChaveAcessoNFe(object):
 			"""
 			return False
 
-		if datetime.strptime(x[2:6], '%y%m').year > datetime.now().year:
+		if int(x[2:6]) > int(datetime.strftime(datetime.now(), '%y%m')):
 			"""
-			O ano de emissão do documento fiscal deve ser anterior ao ano em curso
+			a data (mês e ano) de emissão do documento fiscal deve ser anterior à data (mês e ano) em curso.
 			"""
 			return False
 
-		if datetime.strptime(x[2:6], '%y%m').month > datetime.now().month:
-			"""
-			O mês de emissão do documento fiscal deve ser anterior ao mês em curso
-			"""
-			return False
+		# if datetime.strptime(x[2:6], '%y%m').year > datetime.now().year:
+		# 	"""
+		# 	O ano de emissão do documento fiscal deve ser anterior ao ano em curso
+		# 	"""
+		# 	return False
+
+		# if datetime.strptime(x[2:6], '%y%m').month > datetime.now().month:
+		# 	"""
+		# 	O mês de emissão do documento fiscal deve ser anterior ao mês em curso
+		# 	"""
+		# 	return False
 
 		if not ValidadorCnpj.validar(x[6:20]):
 			"""
