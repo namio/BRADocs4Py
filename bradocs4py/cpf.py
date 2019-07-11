@@ -43,6 +43,9 @@ class CPF(DocumentoIdentificacao):
 
 class ValidadorCpf(object):
 
+	def __call__(self, value):
+		return ValidadorCpf.validar(value)
+
 	def __validarCpf(self, arg):  # type: (CPF) -> bool
 		return self.__validarStr(arg.rawValue)
 
@@ -79,6 +82,8 @@ class ValidadorCpf(object):
 
 		return False
 
+
+validar_cpf = ValidadorCpf()
 
 
 class GeradorCpf(object):

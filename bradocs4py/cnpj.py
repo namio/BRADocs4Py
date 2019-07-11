@@ -43,6 +43,9 @@ class Cnpj(DocumentoIdentificacao):
 class ValidadorCnpj(object):
 	"""docstring for ValidadorCnpj"""
 
+	def __call__(self, value):
+		return ValidadorCnpj.validar(value)
+
 	def __validarCnpj(self, arg): # type: (cnpj) -> bool
 		return self.__validarStr(arg.rawValue)
 
@@ -79,6 +82,8 @@ class ValidadorCnpj(object):
 
 		return False
 
+
+validar_cnpj = ValidadorCnpj()
 
 
 class GeradorCnpj(object):

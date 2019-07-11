@@ -12,7 +12,7 @@ setup(
 	packages = find_packages(exclude = ['contrib', 'docs', 'tests*']),
 	include_package_data = False,
 	version = __version__,
-	description = 'Corrige falha que invalidava chaves de acessos de notas fiscais eletrônicas emitidas com datas (ano e mês) anteriores à data corrente.',
+	description = 'A validação do CNPJ e do CPF pode ser realizada através dos atalhos validar_cnpj e validar_cpf.',
 	long_description = long_description,
 	long_description_content_type="text/markdown",
 	python_requires='>=3',
