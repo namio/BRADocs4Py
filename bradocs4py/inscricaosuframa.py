@@ -47,6 +47,10 @@ class ValidadorSuframa(object):
 	docstring for ValidadorSuframa
 	"""
 
+	def __call__(self, value):
+		return ValidadorSuframa.validar(value)
+
+
 	def __validarInscricaoSuframa(self, arg): # type: (InscricaoSuframa) -> bool
 		return self.__validarStr(arg.rawValue)
 
@@ -88,6 +92,10 @@ class ValidadorSuframa(object):
 		if type(arg) == str: return v.__validarStr(arg)
 
 		return False
+
+
+
+validar_inscricao_suframa = ValidadorSuframa()
 
 
 
