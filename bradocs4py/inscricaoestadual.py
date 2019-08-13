@@ -192,6 +192,9 @@ class ValidadorInscricaoEstadual(object):
 
 	validadores = validadoresie
 
+	def __call__(self, numero, siglaUF):
+		return ValidadorInscricaoEstadual.validarStr(numero, siglaUF)
+
 	@staticmethod
 	def validar(inscricaoEstadual):
 		return ValidadorInscricaoEstadual.validarStr(inscricaoEstadual.rawValue, inscricaoEstadual.UF)
@@ -210,6 +213,9 @@ class ValidadorInscricaoEstadual(object):
 
 		return classeValidador.validar(inscricaoStr)
 
+
+
+validar_inscricao_estadual = ValidadorInscricaoEstadual()
 
 
 

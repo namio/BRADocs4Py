@@ -12,7 +12,7 @@ setup(
 	packages = find_packages(exclude = ['contrib', 'docs', 'tests*']),
 	include_package_data = False,
 	version = __version__,
-	description = 'Implementa a funcionalidade validar_inscao_suframa.',
+	description = 'Implementa a funcionalidade validar_inscao_estadual.',
 	long_description = long_description,
 	long_description_content_type="text/markdown",
 	python_requires='>=3',
