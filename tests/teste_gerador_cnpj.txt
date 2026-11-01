@@ -1,4 +1,4 @@
->>> from cpfcnpj import GeradorCnpj
+>>> from bradocs4py import GeradorCnpj
 
 >>> cnpj = GeradorCnpj.gerar()
 >>> cnpj.isValid

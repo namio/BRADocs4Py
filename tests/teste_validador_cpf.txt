@@ -1,4 +1,4 @@
->>> from cpfcnpj import CPF, ValidadorCpf
+>>> from bradocs4py import CPF, ValidadorCpf
 
 CPFs errados
 ------------

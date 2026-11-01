@@ -1,4 +1,4 @@
->>> from cpfcnpj import Cnpj, ValidadorCnpj
+>>> from bradocs4py import Cnpj, ValidadorCnpj
 
 CNPJs inválidos
 ---------------
