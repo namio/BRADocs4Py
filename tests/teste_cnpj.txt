@@ -1,4 +1,4 @@
->>> from cpfcnpj import Cnpj
+>>> from bradocs4py import Cnpj
 
 CNPJs errados
 -------------

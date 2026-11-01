@@ -17,12 +17,20 @@ if __name__ == '__main__':
 		search_path = '%s/*.txt' % os.path.join(CUR_DIR, 'tests')
 	else: search_path = '%s/%s-*.txt' % (os.path.join(CUR_DIR, 'tests'), run_level)
 
-	test_files = glob.glob(search_path)
+	test_files = sorted(glob.glob(search_path))
 	test_files = map(lambda i: i[len(CUR_DIR)+1:], test_files)
+
+	total_failures = 0
+	total_examples = 0
 
 	for fName in test_files:
 		print('Executando "%s"...'%(os.path.splitext(os.path.split(fName)[-1])[0]))
 
-		doctest.testfile(fName)
+		result = doctest.testfile(os.path.join(CUR_DIR, fName), module_relative=False)
 
-	print('Testes concluídos!!')
+		total_failures += result.failed
+		total_examples += result.attempted
+
+	print('Testes concluídos: %d exemplos, %d falha(s)'%(total_examples, total_failures))
+
+	sys.exit(1 if total_failures else 0)

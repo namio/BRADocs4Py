@@ -1,4 +1,4 @@
->>> from cpfcnpj import GeradorCpf
+>>> from bradocs4py import GeradorCpf
 
 >>> cpf = GeradorCpf.gerar()
 >>> cpf.isValid
